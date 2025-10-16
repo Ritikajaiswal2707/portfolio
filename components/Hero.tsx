@@ -58,7 +58,7 @@ const Hero = () => {
 
           <div className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-xl max-w-4xl">
             <p className="mb-3">
-              Hi! I&apos;m Ritika Jaiswal, a Full-Stack AI Engineer focused on developing real-time, AI-powered web applications using Next.js, Node.js, and modern cloud tools.
+              Hi! I&apos;m <span className="text-purple font-semibold">Ritika Jaiswal</span>, a Full-Stack AI Engineer focused on developing real-time, AI-powered web applications using Next.js, Node.js, and modern cloud tools.
             </p>
             <p className="mb-3">
               My projects combine strong frontend engineering, efficient backend architecture, and AI integration — from emergency healthcare systems to intelligent voice assistants and predictive analytics platforms.
