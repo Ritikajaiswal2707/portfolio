@@ -1,6 +1,7 @@
 import { FaLocationArrow } from "react-icons/fa6";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
-import { socialMedia } from "@/data";
+import { socialMedia, contactInfo } from "@/data";
 import MagicButton from "./MagicButton";
 
 const Footer = () => {
@@ -24,6 +25,29 @@ const Footer = () => {
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
+        
+        {/* Contact Information */}
+        <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
+          <a 
+            href={`tel:${contactInfo.phone}`}
+            className="flex items-center gap-2 text-white-200 hover:text-purple-300 transition-colors"
+          >
+            <FaPhone className="text-purple" />
+            <span>{contactInfo.phone}</span>
+          </a>
+          <a 
+            href={`mailto:${contactInfo.email}`}
+            className="flex items-center gap-2 text-white-200 hover:text-purple-300 transition-colors"
+          >
+            <FaEnvelope className="text-purple" />
+            <span>{contactInfo.email}</span>
+          </a>
+          <div className="flex items-center gap-2 text-white-200">
+            <FaMapMarkerAlt className="text-purple" />
+            <span>{contactInfo.location}</span>
+          </div>
+        </div>
+
         <a href="mailto:jaiswalritika2707@gmail.com">
           <MagicButton
             title="Let's get in touch"

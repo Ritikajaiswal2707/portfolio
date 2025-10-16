@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaLocationArrow, FaGithub, FaPlay, FaPause } from "react-icons/fa6";
 
 import { projects } from "@/data";
@@ -8,10 +8,46 @@ import { PinContainer } from "./ui/Pin";
 
 const RecentProjects = () => {
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+  const [hoveredVideo, setHoveredVideo] = useState<number | null>(null);
+  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
   const toggleVideo = (projectId: number) => {
     setPlayingVideo(playingVideo === projectId ? null : projectId);
   };
+
+  const handleVideoHover = (projectId: number, isHovering: boolean) => {
+    setHoveredVideo(isHovering ? projectId : null);
+  };
+
+  // Auto-play video when it comes into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const videoId = parseInt(entry.target.getAttribute('data-video-id') || '0');
+            if (videoRefs.current[videoId]) {
+              videoRefs.current[videoId]?.play();
+            }
+          } else {
+            const videoId = parseInt(entry.target.getAttribute('data-video-id') || '0');
+            if (videoRefs.current[videoId]) {
+              videoRefs.current[videoId]?.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    Object.values(videoRefs.current).forEach((video) => {
+      if (video) {
+        observer.observe(video);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="py-20">
@@ -39,35 +75,47 @@ const RecentProjects = () => {
                 
                 {/* Video Player */}
                 {item.video && (
-                  <div className="absolute inset-0 z-20">
-                    {playingVideo === item.id ? (
-                      <video
-                        className="w-full h-full object-cover lg:rounded-3xl"
-                        controls
-                        autoPlay
-                        loop
-                        muted
+                  <div 
+                    className="absolute inset-0 z-20"
+                    onMouseEnter={() => handleVideoHover(item.id, true)}
+                    onMouseLeave={() => handleVideoHover(item.id, false)}
+                  >
+                    <video
+                      ref={(el) => (videoRefs.current[item.id] = el)}
+                      data-video-id={item.id}
+                      className="w-full h-full object-cover lg:rounded-3xl"
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      poster={item.img}
+                    >
+                      <source src={item.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    
+                    {/* Play/Pause Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition-all duration-300 lg:rounded-3xl">
+                      <button
+                        onClick={() => {
+                          const video = videoRefs.current[item.id];
+                          if (video) {
+                            if (video.paused) {
+                              video.play();
+                            } else {
+                              video.pause();
+                            }
+                          }
+                        }}
+                        className="bg-white bg-opacity-20 rounded-full p-4 hover:bg-opacity-30 transition-all duration-300 backdrop-blur-sm"
                       >
-                        <source src={item.video} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    ) : (
-                      <div className="relative w-full h-full">
-                        <img
-                          src={item.img}
-                          alt="cover"
-                          className="w-full h-full object-cover lg:rounded-3xl"
-                        />
-                        <button
-                          onClick={() => toggleVideo(item.id)}
-                          className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-70 transition-all duration-300 lg:rounded-3xl"
-                        >
-                          <div className="bg-white bg-opacity-20 rounded-full p-4 hover:bg-opacity-30 transition-all duration-300">
-                            <FaPlay className="text-white text-2xl ml-1" />
-                          </div>
-                        </button>
-                      </div>
-                    )}
+                        {playingVideo === item.id ? (
+                          <FaPause className="text-white text-2xl" />
+                        ) : (
+                          <FaPlay className="text-white text-2xl ml-1" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                 )}
                 
