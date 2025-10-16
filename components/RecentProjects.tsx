@@ -81,7 +81,7 @@ const RecentProjects = () => {
                     onMouseLeave={() => handleVideoHover(item.id, false)}
                   >
                     <video
-                      ref={(el) => (videoRefs.current[item.id] = el)}
+                      ref={(el) => { videoRefs.current[item.id] = el; }}
                       data-video-id={item.id}
                       className="w-full h-full object-cover lg:rounded-3xl"
                       loop
