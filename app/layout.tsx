@@ -7,8 +7,39 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Adrian's Portfolio",
-  description: "Modern & Minimal JS Mastery Portfolio",
+  title: "Ritika Jaiswal | Full-Stack AI Engineer",
+  description:
+    "Full-Stack AI Engineer building real-time, AI-powered web applications with Next.js, Node.js, and modern cloud tools.",
+  metadataBase: new URL("https://portfolioritika.vercel.app"),
+  openGraph: {
+    title: "Ritika Jaiswal | Full-Stack AI Engineer",
+    description:
+      "Full-Stack AI Engineer building real-time, AI-powered web applications with Next.js, Node.js, and modern cloud tools.",
+    url: "https://portfolioritika.vercel.app",
+    siteName: "Ritika Jaiswal Portfolio",
+    images: [
+      {
+        url: "/images/aapat.png",
+        width: 1200,
+        height: 630,
+        alt: "Ritika Jaiswal Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ritika Jaiswal | Full-Stack AI Engineer",
+    description:
+      "Full-Stack AI Engineer building real-time, AI-powered web applications with Next.js, Node.js, and modern cloud tools.",
+    images: [
+      {
+        url: "/images/aapat.png",
+        alt: "Ritika Jaiswal Portfolio Preview",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
