@@ -137,33 +137,9 @@ export const testimonials = [
 export const companies = [
   {
     id: 1,
-    name: "cloudinary",
-    img: "/cloud.svg",
-    nameImg: "/cloudName.svg",
-  },
-  {
-    id: 2,
-    name: "appwrite",
-    img: "/app.svg",
-    nameImg: "/appName.svg",
-  },
-  {
-    id: 3,
-    name: "HOSTINGER",
-    img: "/host.svg",
-    nameImg: "/hostName.svg",
-  },
-  {
-    id: 4,
-    name: "stream",
-    img: "/s.svg",
-    nameImg: "/streamName.svg",
-  },
-  {
-    id: 5,
-    name: "docker.",
-    img: "/dock.svg",
-    nameImg: "/dockerName.svg",
+    name: "zenher",
+    img: "/images/zenher_logo.jpg",
+    nameImg: "/images/zenher_logo.jpg",
   },
 ];
 
@@ -173,7 +149,7 @@ export const workExperience = [
     title: "Full Stack Developer Intern | Zenher Technologies",
     desc: "Built and maintained frontend and backend features for Zenher's women's health platform. Developed responsive UI and integrated APIs for user profiles, health tracking, and insights. Collaborated on code reviews, bug fixes, and performance optimizations.",
     className: "md:col-span-2",
-    thumbnail: "/images/zenher-logo.png",
+    thumbnail: "/images/zenher_logo.jpg",
     companyUrl: "https://www.zenher.in/",
   },
 ];

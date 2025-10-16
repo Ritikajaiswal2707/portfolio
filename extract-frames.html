@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Frame Extractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .video-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: #2a2a2a;
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .controls {
+            margin: 10px 0;
+        }
+
+        button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #4f46e5;
+        }
+
+        canvas {
+            border: 1px solid #333;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .frame-preview {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .frame-item {
+            text-align: center;
+        }
+
+        .frame-item img {
+            max-width: 200px;
+            border-radius: 4px;
+        }
+
+        .download-btn {
+            background: #10b981;
+            margin-top: 5px;
+        }
+
+        .download-btn:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎬 Video Frame Extractor for Portfolio</h1>
+    <p>Extract frames from your demo videos to use as covers. Click "Extract Frame" at the best moment of each video.
+    </p>
+
+    <div class="video-container">
+        <h3>1. Aapat Demo</h3>
+        <video id="video1" controls>
+            <source src="public/videos/aapatdemo.mp4" type="video/mp4">
+        </video>
+        <div class="controls">
+            <button onclick="extractFrame('video1', 'aapat-cover')">Extract Frame</button>
+            <button onclick="seekToTime('video1', 5)">Go to 5s</button>
+            <button onclick="seekToTime('video1', 10)">Go to 10s</button>
+        </div>
+        <div id="frames1" class="frame-preview"></div>
+    </div>
+
+    <div class="video-container">
+        <h3>2. Anvi Demo</h3>
+        <video id="video2" controls>
+            <source src="public/videos/anvidemo.mp4" type="video/mp4">
+        </video>
+        <div class="controls">
+            <button onclick="extractFrame('video2', 'anvi-cover')">Extract Frame</button>
+            <button onclick="seekToTime('video2', 5)">Go to 5s</button>
+            <button onclick="seekToTime('video2', 10)">Go to 10s</button>
+        </div>
+        <div id="frames2" class="frame-preview"></div>
+    </div>
+
+    <div class="video-container">
+        <h3>3. Uber Demo</h3>
+        <video id="video3" controls>
+            <source src="public/videos/uber demo final.mp4" type="video/mp4">
+        </video>
+        <div class="controls">
+            <button onclick="extractFrame('video3', 'uber-cover')">Extract Frame</button>
+            <button onclick="seekToTime('video3', 5)">Go to 5s</button>
+            <button onclick="seekToTime('video3', 10)">Go to 10s</button>
+        </div>
+        <div id="frames3" class="frame-preview"></div>
+    </div>
+
+    <div class="video-container">
+        <h3>4. Predictive Maintenance Demo</h3>
+        <video id="video4" controls>
+            <source src="public/videos/aimlproject demo.mp4" type="video/mp4">
+        </video>
+        <div class="controls">
+            <button onclick="extractFrame('video4', 'predictive-cover')">Extract Frame</button>
+            <button onclick="seekToTime('video4', 5)">Go to 5s</button>
+            <button onclick="seekToTime('video4', 10)">Go to 10s</button>
+        </div>
+        <div id="frames4" class="frame-preview"></div>
+    </div>
+
+    <div class="video-container">
+        <h3>5. LAZAREV Demo</h3>
+        <video id="video5" controls>
+            <source src="public/videos/lazarev demo.mp4" type="video/mp4">
+        </video>
+        <div class="controls">
+            <button onclick="extractFrame('video5', 'lazarev-cover')">Extract Frame</button>
+            <button onclick="seekToTime('video5', 5)">Go to 5s</button>
+            <button onclick="seekToTime('video5', 10)">Go to 10s</button>
+        </div>
+        <div id="frames5" class="frame-preview"></div>
+    </div>
+
+    <script>
+        function seekToTime(videoId, seconds) {
+            const video = document.getElementById(videoId);
+            video.currentTime = seconds;
+        }
+
+        function extractFrame(videoId, filename) {
+            const video = document.getElementById(videoId);
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas size to video size
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            // Draw current video frame to canvas
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert to image
+            canvas.toBlob(function (blob) {
+                const url = URL.createObjectURL(blob);
+                const img = document.createElement('img');
+                img.src = url;
+                img.style.maxWidth = '200px';
+                img.style.borderRadius = '4px';
+
+                // Create download link
+                const downloadBtn = document.createElement('button');
+                downloadBtn.textContent = 'Download';
+                downloadBtn.className = 'download-btn';
+                downloadBtn.onclick = function () {
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename + '.jpg';
+                    a.click();
+                };
+
+                // Create container
+                const frameItem = document.createElement('div');
+                frameItem.className = 'frame-item';
+                frameItem.appendChild(img);
+                frameItem.appendChild(document.createElement('br'));
+                frameItem.appendChild(downloadBtn);
+
+                // Add to preview
+                const framesContainer = document.getElementById(videoId.replace('video', 'frames'));
+                framesContainer.appendChild(frameItem);
+            }, 'image/jpeg', 0.9);
+        }
+    </script>
+</body>
+
+</html>
