@@ -81,6 +81,7 @@ const RecentProjects = () => {
                     onMouseLeave={() => handleVideoHover(item.id, false)}
                   >
                     <video
+                      // TypeScript fix: void function for ref callback
                       ref={(el) => { videoRefs.current[item.id] = el; }}
                       data-video-id={item.id}
                       className="w-full h-full object-cover lg:rounded-3xl"
