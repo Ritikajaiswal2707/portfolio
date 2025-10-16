@@ -43,7 +43,7 @@ const Hero = () => {
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Web Magic with Next.js
+            Full-Stack AI Engineer | Building Intelligent, Scalable Web Solutions
           </p>
 
           {/**
@@ -52,13 +52,21 @@ const Hero = () => {
            *  change md:text-6xl, add more responsive code
            */}
           <TextGenerateEffect
-            words="Transforming Concepts into Seamless User Experiences"
+            words="Turning Complex Ideas into Real-Time, AI-Driven Products"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Adrian, a Next.js Developer based in Croatia.
-          </p>
+          <div className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-xl max-w-4xl">
+            <p className="mb-3">
+              Hi! I&apos;m Ritika Jaiswal, a Full-Stack AI Engineer focused on developing real-time, AI-powered web applications using Next.js, Node.js, and modern cloud tools.
+            </p>
+            <p className="mb-3">
+              My projects combine strong frontend engineering, efficient backend architecture, and AI integration — from emergency healthcare systems to intelligent voice assistants and predictive analytics platforms.
+            </p>
+            <p>
+              I&apos;m passionate about building products that are fast, scalable, and human-centric, delivering measurable impact for users and businesses alike.
+            </p>
+          </div>
 
           <a href="#about">
             <MagicButton

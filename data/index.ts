@@ -1,6 +1,7 @@
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
+  { name: "Skills", link: "#skills" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ];
@@ -8,7 +9,7 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title: "I specialize in building real-time web platforms with live data sync, AI-powered interfaces, and scalable architecture",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full",
@@ -18,7 +19,7 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm very flexible with time zone communications",
+    title: "End-to-end product engineering — from idea validation to deployment",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -29,7 +30,7 @@ export const gridItems = [
   {
     id: 3,
     title: "My tech stack",
-    description: "I constantly try to improve",
+    description: "Next.js • React • Node.js • AI/ML • Real-Time Systems • Cloud",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-center",
@@ -38,7 +39,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development.",
+    title: "Creating visually engaging frontend experiences with advanced motion and animation libraries",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -49,7 +50,7 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently building a JS Animation library",
+    title: "Developing AI-powered interfaces using GPT, voice, and conversational APIs",
     description: "The Inside Scoop",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -72,35 +73,53 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
+    title: "Aapat — Real-Time Emergency Response Platform",
+    des: "A real-time emergency platform that displays live hospital bed, doctor, and ambulance availability to help families make faster decisions during critical situations.",
+    img: "/images/apat.png",
+    video: "/videos/apat-demo.mp4",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg", "/fm.svg"],
+    link: "https://apat.live",
+    github: "https://github.com/Ritikajaiswal2707/aapat",
   },
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
+    title: "Anvi — AI Voice-Driven Real Estate Assistant",
+    des: "An AI-powered voice assistant that helps users discover real estate listings through natural conversations using OpenAI GPT APIs and speech processing.",
+    img: "/images/anvi.png",
+    video: "/videos/anvi-demo.mp4",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg", "/fm.svg"],
+    link: "https://anvi.ai",
+    github: "https://github.com/Ritikajaiswal2707/anvi",
   },
   {
     id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
+    title: "Uber-Clone — Real-Time Ride Booking System",
+    des: "A functional ride-hailing clone featuring real-time driver tracking, route mapping, and ride status updates with Socket.io integration.",
+    img: "/images/uberclone.png",
+    video: "/videos/uber-demo.mp4",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/fm.svg", "/c.svg"],
+    link: "https://uber-ten-zeta.vercel.app",
+    github: "https://github.com/Ritikajaiswal2707/uber",
   },
   {
     id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "/ui.apple.com",
+    title: "Predictive Maintenance — AI for Industrial Health Monitoring",
+    des: "A machine learning-based predictive maintenance system that monitors industrial equipment and predicts possible failures before they occur.",
+    img: "/images/predictive.png",
+    video: "/videos/predictive-demo.mp4",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/fm.svg", "/c.svg"],
+    link: "https://predictive-ai.tech",
+    github: "https://github.com/Ritikajaiswal2707/predictive-maintenance",
+  },
+  {
+    id: 5,
+    title: "LAZAREV Clone — Interactive Design Portfolio",
+    des: "A frontend clone inspired by LAZAREV Agency, showcasing advanced GSAP animations, smooth transitions, and responsive layouts.",
+    img: "/images/lazarev.png",
+    video: "/videos/lazarev-demo.mp4",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/gsap.svg", "/fm.svg"],
+    link: "https://lazarevclone.dev",
+    github: "https://github.com/Ritikajaiswal2707/lazarev-clone",
   },
 ];
 
@@ -205,13 +224,43 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    link: "https://github.com/Ritikajaiswal2707",
   },
   {
     id: 2,
-    img: "/twit.svg",
+    img: "/link.svg",
+    link: "https://www.linkedin.com/in/ritika-jaiswal-83661a252",
   },
   {
     id: 3,
-    img: "/link.svg",
+    img: "/insta.svg",
+    link: "https://www.instagram.com/ritika_story_?igsh=MW1zejNoODY5MTIwaw==",
+  },
+  {
+    id: 4,
+    img: "/twit.svg",
+    link: "https://twitter.com/ritikajaiswal27",
   },
 ];
+
+export const skills = {
+  frontend: [
+    "Next.js", "React.js", "JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", 
+    "Tailwind CSS", "GSAP", "Framer Motion", "Redux Toolkit", "Responsive UI Design"
+  ],
+  backend: [
+    "Node.js", "Express.js", "REST APIs", "MongoDB", "Firebase", "WebSockets", 
+    "Authentication (JWT, OAuth)", "Cloud Functions"
+  ],
+  ai: [
+    "OpenAI API (GPT Models)", "Whisper (Speech-to-Text)", "Text-to-Speech (TTS) APIs", 
+    "Python", "Scikit-Learn", "Pandas", "Flask", "NLP", "Real-Time AI Chatbots"
+  ],
+  devops: [
+    "Render", "Vercel", "AWS (Basics)", "Git", "GitHub Actions", "Docker (Fundamentals)", 
+    "CI/CD Pipelines", "API Integrations (Google Maps, Stripe, etc.)"
+  ],
+  tools: [
+    "VS Code", "Postman", "Figma", "Notion", "GitHub", "Jira", "Agile Methodology"
+  ]
+};
